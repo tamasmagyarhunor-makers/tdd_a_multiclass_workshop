@@ -3,3 +3,6 @@ class House():
         self.bedrooms = bedrooms
         self.bathrooms = bathrooms
         self.persons = []
+
+    def add(self, person):
+        self.persons.append(person)
