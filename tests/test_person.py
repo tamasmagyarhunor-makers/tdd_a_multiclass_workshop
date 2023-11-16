@@ -16,3 +16,8 @@ def test_instantiates_with_name_and_age():
 
     assert actual_name == expected_name
     assert actual_age == expected_age
+
+def test_get_person_name():
+    actual = Person('Jordan', 23)
+
+    assert actual.get_person_name() == 'Jordan'
