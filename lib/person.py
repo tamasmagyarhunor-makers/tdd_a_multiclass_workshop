@@ -4,4 +4,4 @@ class Person():
         self.age = age
 
     def get_person_name(self):
-        return self.name
+        return 'Hi, my name is ' + self.name

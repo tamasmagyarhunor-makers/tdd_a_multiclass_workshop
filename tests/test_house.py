@@ -1,6 +1,8 @@
 from lib.house import *
 from lib.person import *
 import pytest
+from unittest.mock import Mock
+
 
 def test_house_can_be_instantiated():
     actual = House(2, 3)
@@ -41,3 +43,25 @@ def test_house_can_add_a_person():
     expected = [person]
 
     assert actual == expected
+
+def test_house_can_print_person_name():
+    house = House(1, 2)
+    person = Mock()
+    person2 = Mock()
+    # mocking
+    # we instruct the Mock object to expect get_person_name function to be called on it
+    # and then to return 'Hunor'
+    person.get_person_name.return_value = 'Hi, my name is Hunor'
+    # we instruct the Mock object to expect get_person_name function to be called on it
+    # and then to return 'Hunor'
+    person2.get_person_name.return_value = 'Hi, my name is Jenny'
+
+    house.add(person)
+    house.add(person2)
+
+    actual = house.persons_names()
+    expected = ['Hi, my name is Hunor', 'Hi, my name is Jenny']
+
+    assert actual == expected
+
+    
